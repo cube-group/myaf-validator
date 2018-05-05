@@ -1,0 +1,28 @@
+{
+  "name": "cube-group/myaf-validator",
+  "description": "validator",
+  "keywords": [
+    "base"
+  ],
+  "authors": [
+    {
+      "name": "linyang",
+      "email": "linyangflash@163.com"
+    },
+    {
+      "name": "chenqionghe",
+      "email": "chenqionghe@sina.com"
+    }
+  ],
+  "license": "MIT",
+  "type": "library",
+  "require": {
+    "cube-group/myaf-utils": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Myaf\\Validator\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}
