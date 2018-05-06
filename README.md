@@ -1,4 +1,6 @@
 # Validator是一个简单的验证类
+[![Latest Stable Version](https://poser.pugx.org/cube-group/myaf-validator/version)](https://packagist.org/packages/cube-group/myaf-validator)
+
 支持批量验证表单数据、自定义错误信息，简化大量的验证判断代码，使代码变得加简洁优雅！
 
 ### 快速使用
