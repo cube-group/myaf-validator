@@ -1,6 +1,5 @@
 <?php
 use Myaf\Validator\Validator;
-use PHPUnit\Framework\TestCase;
 
 
 /**
@@ -8,9 +7,12 @@ use PHPUnit\Framework\TestCase;
  *
  * @author chenqionghe
  */
-class ValidatorTest extends TestCase
+class ValidatorTest extends \PHPUnit\Framework\TestCase
 {
-    public function test()
+    /**
+     * @test
+     */
+    public function demo()
     {
         $data = [
             'name' => 'chenqionghe',
@@ -27,15 +29,16 @@ class ValidatorTest extends TestCase
             ['email', 'email'],
             ['numeric', 'age'],
             ['length', 'address', ">=", 20],
-            ['in', 'sex', ['男','女']],
-            ['notIn', 'lang', ['php', 'go','java']],
+            ['in', 'sex', ['男', '女']],
+            ['notIn', 'lang', ['php', 'go', 'java']],
         ]);
         //验证触发方法
-        if (!$validator->validate()) {
+        $res = $validator->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
             var_dump($validator->errors());//打印所有错误(返回数组)
             var_dump($validator->errorString());//打印错误字符串
         }
-
     }
 
 
@@ -52,9 +55,10 @@ class ValidatorTest extends TestCase
             ['required', "name", 'message' => "姓名不能为空！"],
             ['numeric', "age", 'message' => '{fields}不能为空，年龄必须是数字，非法值{value}！'],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errors());
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -75,8 +79,10 @@ class ValidatorTest extends TestCase
             ['required', "name_isset", 'message' => 'name_isset字段必须有，可以为空', 'skipEmpty' => false],
         ]);
 
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -91,8 +97,10 @@ class ValidatorTest extends TestCase
             ['url', "url1"],
             ['url', "url2"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -108,8 +116,10 @@ class ValidatorTest extends TestCase
             ['email', "email1"],
             ['email', "email2"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -125,8 +135,10 @@ class ValidatorTest extends TestCase
             ['numeric', "number1"],
             ['numeric', "number2"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -142,8 +154,10 @@ class ValidatorTest extends TestCase
             ['alpha', "name1"],
             ['alpha', "name2"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -158,8 +172,10 @@ class ValidatorTest extends TestCase
             ['alphaNum', "name1"],
             ['alphaNum', "name2"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -174,8 +190,10 @@ class ValidatorTest extends TestCase
             ['slug', "name1"],
             ['slug', "name2"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -191,8 +209,10 @@ class ValidatorTest extends TestCase
             ['date', "date2"],
             ['date', "date3"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -207,8 +227,10 @@ class ValidatorTest extends TestCase
             ['tel', "tel1"],
             ['tel', "tel2"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -223,8 +245,10 @@ class ValidatorTest extends TestCase
             ['mobile', "mobile1"],
             ['mobile', "mobile2"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -239,8 +263,10 @@ class ValidatorTest extends TestCase
             ['json', "json1"],
             ['json', "json2"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -255,8 +281,10 @@ class ValidatorTest extends TestCase
             ['ip', "ip1"],
             ['ip', "ip2"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -271,8 +299,10 @@ class ValidatorTest extends TestCase
             ['bool', "bool1"],
             ['bool', "bool2"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, true);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -286,8 +316,10 @@ class ValidatorTest extends TestCase
         $val->rules([
             ['same', "name1", 'name2'],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -301,8 +333,10 @@ class ValidatorTest extends TestCase
         $val->rules([
             ['diff', "name1", 'name2'],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -324,8 +358,10 @@ class ValidatorTest extends TestCase
             ['length', 'name', "!=", 18],//name长度 != 18
             ['length', 'name', "!==", 18],//name长度 !== 18
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -346,8 +382,10 @@ class ValidatorTest extends TestCase
             ['compare', 'age', "!=", 18],
             ['compare', 'age', "!==", 18],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -361,8 +399,10 @@ class ValidatorTest extends TestCase
         $val->rules([
             ['contains', ['name1', 'name2'], "cqh"],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -377,8 +417,10 @@ class ValidatorTest extends TestCase
             ['in', "name", ['jack', 'rose', 'james']],
             ['in', "lang", ['php', 'java', 'go']],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -393,8 +435,10 @@ class ValidatorTest extends TestCase
             ['notIn', "name", ['jack', 'rose', 'james']],
             ['notIn', "lang", ['php', 'java', 'go']],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -408,8 +452,10 @@ class ValidatorTest extends TestCase
         $val->rules([
             ['regex', ['name1', 'name2'], '/^cqh.*/'],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -425,8 +471,10 @@ class ValidatorTest extends TestCase
             }, 'name1', 'message' => '名字不是helloWorld'],
 
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
     }
 
@@ -441,8 +489,10 @@ class ValidatorTest extends TestCase
             ['func', 'name', 'is_array'],
             ['func', 'name', [\Myaf\Utils\Arrays::class, 'isMultidim']],
         ]);
-        if (!$val->validate()) {
-            var_dump($val->errorString());
+        $res = $val->validate();
+        $this->assertEquals($res, false);
+        if (!$res) {
+            var_dump($val->errorString());//打印错误字符串
         }
 
     }
@@ -462,7 +512,7 @@ class ValidatorTest extends TestCase
         $validator = new  Validator($data);
         $validator->rules([
             ['required', 'demo.name'],//$data['demo']['name']必传
-            ['integer', 'demo.age', 'message' => "哈哈"],//$data['demo']['age']必须是整数
+            ['numeric', 'demo.age', 'message' => "哈哈"],//$data['demo']['age']必须是整数
         ]);
         if ($validator->validate()) {
             //验证成功

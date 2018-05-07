@@ -75,7 +75,7 @@ $validator = new Validator([]);
 $validator->rule(['email', 'email']);
 $validator->rules([
     ['required', 'name'],
-    ['integer', 'age'],
+    ['numeric', 'age'],
 ]);
 if ($validator->validate()) {
     //验证通过
@@ -89,13 +89,13 @@ if ($validator->validate()) {
 array (size=3)
   'email' => 
     array (size=1)
-      0 => string 'Email是无效邮箱, 非法值abc' (length=34)
+      0 => string 'email是无效邮箱, 非法值abc' (length=34)
   'name' => 
     array (size=1)
-      0 => string 'Name不能为空' (length=16)
+      0 => string 'name不能为空' (length=16)
   'age' => 
     array (size=1)
-      0 => string 'Age只能是整数(0-9)' (length=23)
+      0 => string 'age只能是整数(0-9)' (length=23)
 ```
 
 
@@ -137,7 +137,7 @@ $validator = new  Validator(
 );
 $validator->rules([
     ['required', 'name'],
-    ['integer', 'age'],
+    ['numeric', 'age'],
     ['email', 'email']
 ]);
 if ($validator->validate()) {
