@@ -463,7 +463,7 @@ $data = ['name' => "abc"];
 $val = new Validator($data);
 $val->rules([
     ['func', 'name', 'is_array'],
-    ['func', 'name', [\libs\Utils\Arrays::class, 'isMultidim']],
+    ['func', 'name', [\Myaf\Utils\Arrays::class, 'isMultidim']],
 ]);
 if (!$val->validate()) {
     var_dump($val->errorString());

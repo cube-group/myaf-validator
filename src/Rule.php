@@ -21,8 +21,8 @@ interface Rule
      * @param $field
      * @param $value
      * @param array $params
-     * @param LValidator $validator
+     * @param Validator $validator
      * @return mixed
      */
-    public static function validate($field, $value, $params = [], LValidator $validator);
+    public static function validate($field, $value, $params = [], Validator $validator);
 }

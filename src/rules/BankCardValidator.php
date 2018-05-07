@@ -6,18 +6,17 @@ use Myaf\Validator\Validator;
 use Myaf\Validator\Rule;
 
 /**
- * Class SlugValidator
- * @author chenqionghe
- * @package Myaf\Validator\Rules
+ * Class BankcardValidator
+ * @package libs\Validate\rules
  */
-class SlugValidator implements Rule
+class BankCardValidator implements Rule
 {
     /**
      * @return string
      */
     public static function message()
     {
-        return "{field}只能包括英文字母(a-z)、数字(0-9)、破折号和下划线";
+        return "{field}不是有效的银行卡格式";
     }
 
     /**
@@ -25,10 +24,12 @@ class SlugValidator implements Rule
      * @param $value
      * @param array $params
      * @param Validator $validator
-     * @return bool
+     * @return mixed
      */
     public static function validate($field, $value, $params = [], Validator $validator)
     {
-        return preg_match('/^([-a-z0-9_-])+$/i', $value);
+        if (strlen($value) > 19 || strlen($value) < 12) return false;
+        return !empty($value) ? preg_match('/^[0-9][0-9]{11}[0-9]*$/', $value) : false;
     }
+
 }

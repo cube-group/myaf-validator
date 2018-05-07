@@ -1,14 +1,14 @@
 <?php
 
-namespace MyafMyaf\Validator\Rules;
+namespace Myaf\Validator\Rules;
 
-use Myaf\Validator\LValidator;
+use Myaf\Validator\Validator;
 use Myaf\Validator\Rule;
 
 /**
  * Class TelValidator
  * @author chenqionghe
- * @package MyafMyaf\Validator\Rules
+ * @package Myaf\Validator\Rules
  */
 class TelValidator implements Rule
 {
@@ -24,10 +24,10 @@ class TelValidator implements Rule
      * @param $field
      * @param $value
      * @param array $params
-     * @param LValidator $validator
+     * @param Validator $validator
      * @return mixed
      */
-    public static function validate($field, $value, $params = [], LValidator $validator)
+    public static function validate($field, $value, $params = [], Validator $validator)
     {
         return preg_match('/(\d{4}-|\d{3}-)?(\d{8}|\d{7})/', $value);
     }

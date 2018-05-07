@@ -1,14 +1,14 @@
 <?php
 
-namespace MyafMyaf\Validator\Rules;
+namespace Myaf\Validator\Rules;
 
-use Myaf\Validator\LValidator;
+use Myaf\Validator\Validator;
 use Myaf\Validator\Rule;
 
 /**
  * Class CompareValidator
  * @author chenqionghe
- * @package MyafMyaf\Validator\Rules
+ * @package Myaf\Validator\Rules
  */
 class CompareValidator implements Rule
 {
@@ -24,10 +24,10 @@ class CompareValidator implements Rule
      * @param $field
      * @param $value
      * @param array $params
-     * @param LValidator $validator
+     * @param Validator $validator
      * @return mixed
      */
-    public static function validate($field, $value, $params = [], LValidator $validator)
+    public static function validate($field, $value, $params = [], Validator $validator)
     {
         $operator = $params[0];
         $compareValue = $params[1];

@@ -11,6 +11,7 @@ use Myaf\Utils\Arrays;
 use Myaf\Utils\Strings;
 use MyafMyaf\Validator\Rules\AlphaValidator;
 use MyafMyaf\Validator\Rules\AlphaNumValidator;
+use MyafMyaf\Validator\Rules\BankCardValidator;
 use MyafMyaf\Validator\Rules\CarPlateValidator;
 use MyafMyaf\Validator\Rules\DateValidator;
 use MyafMyaf\Validator\Rules\EmailValidator;
@@ -68,7 +69,7 @@ class Validator implements ArrayAccess, IteratorAggregate, JsonSerializable, Ser
     /**
      * 验证的数据
      *
-     * LValidator constructor.
+     * Validator constructor.
      * @param array $data
      * @param array $labels
      */
@@ -555,8 +556,7 @@ class Validator implements ArrayAccess, IteratorAggregate, JsonSerializable, Ser
      */
     public static function isBankcard($value)
     {
-        return false;
-//        return BankcardValidator::validate('', $value, [], self::getInstance());
+        return BankCardValidator::validate('', $value, [], self::getInstance());
     }
 
     /**

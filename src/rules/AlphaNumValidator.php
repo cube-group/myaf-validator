@@ -1,14 +1,14 @@
 <?php
 
-namespace MyafMyaf\Validator\Rules;
+namespace Myaf\Validator\Rules;
 
-use Myaf\Validator\LValidator;
+use Myaf\Validator\Validator;
 use Myaf\Validator\Rule;
 
 /**
  * Class AlphaNumValidator
  * @author chenqionghe
- * @package MyafMyaf\Validator\Rules
+ * @package Myaf\Validator\Rules
  */
 class AlphaNumValidator implements Rule
 {
@@ -24,10 +24,10 @@ class AlphaNumValidator implements Rule
      * @param $field
      * @param $value
      * @param array $params
-     * @param LValidator $validator
+     * @param Validator $validator
      * @return bool
      */
-    public static function validate($field, $value, $params = [], LValidator $validator)
+    public static function validate($field, $value, $params = [], Validator $validator)
     {
         return preg_match('/^([a-z0-9])+$/i', $value);
     }

@@ -1,14 +1,14 @@
 <?php
 
-namespace MyafMyaf\Validator\Rules;
-use Myaf\Validator\LValidator;
+namespace Myaf\Validator\Rules;
+use Myaf\Validator\Validator;
 use DateTime;
 use Myaf\Validator\Rule;
 
 /**
  * Class DateBeforeValidator
  * @author chenqionghe
- * @package MyafMyaf\Validator\Rules
+ * @package Myaf\Validator\Rules
  */
 class DateBeforeValidator implements Rule
 {
@@ -24,10 +24,10 @@ class DateBeforeValidator implements Rule
      * @param $field
      * @param $value
      * @param array $params
-     * @param LValidator $validator
+     * @param Validator $validator
      * @return bool
      */
-    public static function validate($field, $value, $params = [], LValidator $validator)
+    public static function validate($field, $value, $params = [], Validator $validator)
     {
         $time = ($value instanceof DateTime) ? $value->getTimestamp() : strtotime($value);
         $beforeTime = ($params[0] instanceof DateTime) ? $params[0]->getTimestamp() : strtotime($params[0]);
