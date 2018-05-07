@@ -43,9 +43,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
 
 
     /**
+     * @test
      * 自定义错误消息
      */
-    public function TestMessage()
+    public function message()
     {
         var_dump("自定义错误消息");
         $data = ['name' => '', 'age' => 'a',];
@@ -63,9 +64,9 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * 测试required
+     * @test
      */
-    public function TestRequired()
+    public function required()
     {
         var_dump("requied：skipEmpty可以跳过空验证，但是必传字段");
 
@@ -87,9 +88,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 测试url规则
      */
-    public function testUrl()
+    public function url()
     {
         $data = ['url1' => 'abcdef', 'url2' => 'http://www.baidu.com'];
         $val = new Validator($data);
@@ -106,9 +108,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
 
 
     /**
+     * @test
      * 测试必须是邮箱
      */
-    public function testEmail()
+    public function email()
     {
         $data = ['email1' => 'abcdef', 'email2' => 'chenqionghe@sina.com'];
         $val = new Validator($data);
@@ -125,9 +128,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
 
 
     /**
+     * @test
      * 验证必须是数字
      */
-    public function testNumeric()
+    public function numeric()
     {
         $data = ['number1' => '123', 'number2' => 'abcd'];
         $val = new Validator($data);
@@ -144,9 +148,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
 
 
     /**
+     * @test
      * 测试必须是英文字母
      */
-    public function testAlpha()
+    public function alpha()
     {
         $data = ['name1' => '123', 'name2' => 'abcd'];
         $val = new Validator($data);
@@ -162,9 +167,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证只能是英文字母和数字
      */
-    public function testAlphaNum()
+    public function alphaNum()
     {
         $data = ['name1' => '123abc___', 'name2' => '123abc'];
         $val = new Validator($data);
@@ -180,9 +186,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证只能是英文字母、数字、下划线、破折号
      */
-    public function testSlug()
+    public function slug()
     {
         $data = ['name1' => '123abc___', 'name2' => '123abc...'];
         $val = new Validator($data);
@@ -198,9 +205,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证只能是有效的时间格式
      */
-    public function testDate()
+    public function date()
     {
         $data = ['date1' => '123abc___', 'date2' => '20180201', 'date3' => '20180201 12:00'];
         $val = new Validator($data);
@@ -217,9 +225,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证必须是有效的大陆电话
      */
-    public function testTel()
+    public function tel()
     {
         $data = ['tel1' => '1234abcd', 'tel2' => '089862222222'];
         $val = new Validator($data);
@@ -235,9 +244,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证必须是手机号
      */
-    public function testMobile()
+    public function mobile()
     {
         $data = ['mobile1' => '1234abcd', 'mobile2' => '13188888888'];
         $val = new Validator($data);
@@ -253,9 +263,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证必须是合法的json
      */
-    public function testJson()
+    public function json()
     {
         $data = ['json1' => 'abcdef', 'mobile2' => '{"name":"chenqionghe","age":18}'];
         $val = new Validator($data);
@@ -271,9 +282,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证必须是ip地址
      */
-    public function testIp()
+    public function ip()
     {
         $data = ['ip1' => 'abcdef', 'ip2' => '127.0.0.1'];
         $val = new Validator($data);
@@ -289,9 +301,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证必须是布尔值
      */
-    public function testBool()
+    public function bool()
     {
         $data = ['eq' => 'abcdef', 'mobile2' => false];
         $val = new Validator($data);
@@ -307,9 +320,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证指定字段必须相同
      */
-    public function testSame()
+    public function same()
     {
         $data = ['name1' => 'abc', 'name2' => 'abcd'];
         $val = new Validator($data);
@@ -324,9 +338,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证指定字段必须相同
      */
-    public function testDiff()
+    public function diff()
     {
         $data = ['name1' => 'abc', 'name2' => 'abc'];
         $val = new Validator($data);
@@ -342,9 +357,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
 
 
     /**
+     * @test
      * 验证长度
      */
-    public function testLength()
+    public function length()
     {
         $data = ['name' => 'a'];
         $val = new Validator($data);
@@ -366,9 +382,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 对比验证
      */
-    public function testCompare()
+    public function compare()
     {
         $data = ['age' => 18];
         $val = new Validator($data);
@@ -390,6 +407,7 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 包含验证
      */
     public function testContains()
@@ -407,9 +425,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证必须在某个范围
      */
-    public function testIn()
+    public function in()
     {
         $data = ['name' => "abc", 'lang' => 'abcd'];
         $val = new Validator($data);
@@ -425,9 +444,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证必须不在某个范围
      */
-    public function testNotIn()
+    public function notIn()
     {
         $data = ['name' => "abc", 'lang' => 'php'];
         $val = new Validator($data);
@@ -443,9 +463,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 正则验证
      */
-    public function testRegex()
+    public function regex()
     {
         $data = ['name1' => "abc", 'name2' => 'cqhabc'];
         $val = new Validator($data);
@@ -460,8 +481,11 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
 
-    /** 闭包验证 */
-    public function testClosure()
+    /**
+     * @test
+     * 闭包验证
+     */
+    public function closure()
     {
         $data = ['name1' => "abc"];
         $val = new Validator($data);
@@ -479,9 +503,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 自定义php函数验证
      */
-    public function testFunc()
+    public function func()
     {
         $data = ['name' => "abc"];
         $val = new Validator($data);
@@ -498,9 +523,10 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @test
      * 验证数组内部元素
      */
-    public function testArray()
+    public function array()
     {
         $data = [
             'a' => 'b',
@@ -514,7 +540,9 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
             ['required', 'demo.name'],//$data['demo']['name']必传
             ['numeric', 'demo.age', 'message' => "哈哈"],//$data['demo']['age']必须是整数
         ]);
-        if ($validator->validate()) {
+        $res = $validator->validate();
+        $this->assertEquals($res, false);
+        if ($res) {
             //验证成功
         } else {
             var_dump($validator->errorString());
