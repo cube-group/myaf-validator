@@ -565,7 +565,7 @@ class Validator implements ArrayAccess, IteratorAggregate, JsonSerializable, Ser
      * @param $value
      * @return bool
      */
-    public function isMobile($value)
+    public static function isMobile($value)
     {
         return MobileValidator::validate('', $value, [], self::getInstance());
     }
@@ -577,7 +577,7 @@ class Validator implements ArrayAccess, IteratorAggregate, JsonSerializable, Ser
      * @param $value
      * @return bool
      */
-    public function isIntPositive($value)
+    public static function isIntPositive($value)
     {
         return IntPositiveValidator::validate('', $value, [], self::getInstance());
 
