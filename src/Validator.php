@@ -63,7 +63,7 @@ class Validator implements ArrayAccess, IteratorAggregate, JsonSerializable, Ser
      * 屬性
      * @var array|null|string
      */
-    private $_attributes = null;
+    private $_attributes = [];
 
 
     /**
