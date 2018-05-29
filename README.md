@@ -189,6 +189,7 @@ string '用户名不能为空|年龄只能是整数(0-9)|我的邮箱是无效�
 * func         使用函数或方法验证
 * closure      使用闭包验证
 * json         验证json格式
+* intPositive  验证正整数
 
 ### 验证规则使用Demo
 #### required(验证必传)

@@ -9,17 +9,17 @@ use JsonSerializable;
 use Myaf\Utils\ArrayTrait;
 use Myaf\Utils\Arrays;
 use Myaf\Utils\Strings;
-use MyafMyaf\Validator\Rules\AlphaValidator;
-use MyafMyaf\Validator\Rules\AlphaNumValidator;
-use MyafMyaf\Validator\Rules\BankCardValidator;
-use MyafMyaf\Validator\Rules\CarPlateValidator;
-use MyafMyaf\Validator\Rules\DateValidator;
-use MyafMyaf\Validator\Rules\EmailValidator;
-use MyafMyaf\Validator\Rules\IpValidator;
-use MyafMyaf\Validator\Rules\MobileValidator;
-use MyafMyaf\Validator\Rules\SlugValidator;
-use MyafMyaf\Validator\Rules\TelValidator;
-use MyafMyaf\Validator\Rules\UrlValidator;
+use Myaf\Validator\Rules\AlphaValidator;
+use Myaf\Validator\Rules\AlphaNumValidator;
+use Myaf\Validator\Rules\BankCardValidator;
+use Myaf\Validator\Rules\CarPlateValidator;
+use Myaf\Validator\Rules\DateValidator;
+use Myaf\Validator\Rules\EmailValidator;
+use Myaf\Validator\Rules\IntPositiveValidator;
+use Myaf\Validator\Rules\IpValidator;
+use Myaf\Validator\Rules\MobileValidator;
+use Myaf\Validator\Rules\SlugValidator;
+use Myaf\Validator\Rules\TelValidator;
 use Serializable;
 use Countable;
 
@@ -456,7 +456,7 @@ class Validator implements ArrayAccess, IteratorAggregate, JsonSerializable, Ser
      */
     public static function isUrl($value)
     {
-        return UrlValidator::validate('', $value, [], self::getInstance());
+        return \Myaf\Validator\Rules\UrlValidator::validate('', $value, [], self::getInstance());
     }
 
 
@@ -568,5 +568,18 @@ class Validator implements ArrayAccess, IteratorAggregate, JsonSerializable, Ser
     public function isMobile($value)
     {
         return MobileValidator::validate('', $value, [], self::getInstance());
+    }
+
+
+    /**
+     * 验证必须是正整数
+     *
+     * @param $value
+     * @return bool
+     */
+    public function isIntPositive($value)
+    {
+        return IntPositiveValidator::validate('', $value, [], self::getInstance());
+
     }
 }

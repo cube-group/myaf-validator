@@ -25,6 +25,7 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
         ];
         $validator = new  Validator($data);
         $validator->rules([
+            ['intPositive','age'],
             ['required', 'name'],
             ['email', 'email'],
             ['numeric', 'age'],
