@@ -29,7 +29,7 @@ class IntPositiveValidator implements Rule
      */
     public static function validate($field, $value, $params = [], Validator $validator)
     {
-        return (bool)preg_match("/^[1-9][0-9]*$/", $value);
+        return is_numeric($value) && (int) $value == $value;
     }
 
 }
