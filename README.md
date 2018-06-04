@@ -65,6 +65,7 @@ Validator::isSlug('123abc_'));
 Validator::isDate('2010'));
 Validator::isMobile('123456'));
 Validator::isTel('123456'));
+Validator::isDomain('123456'));
 ```
 
 ### 使用demo1 通过rule或rules添加验证规则
@@ -190,6 +191,7 @@ string '用户名不能为空|年龄只能是整数(0-9)|我的邮箱是无效�
 * closure      使用闭包验证
 * json         验证json格式
 * intPositive  验证正整数
+* domain       验证域名
 
 ### 验证规则使用Demo
 #### required(验证必传)

@@ -14,6 +14,7 @@ use Myaf\Validator\Rules\AlphaNumValidator;
 use Myaf\Validator\Rules\BankCardValidator;
 use Myaf\Validator\Rules\CarPlateValidator;
 use Myaf\Validator\Rules\DateValidator;
+use Myaf\Validator\Rules\DomainValidator;
 use Myaf\Validator\Rules\EmailValidator;
 use Myaf\Validator\Rules\IntPositiveValidator;
 use Myaf\Validator\Rules\IpValidator;
@@ -580,6 +581,16 @@ class Validator implements ArrayAccess, IteratorAggregate, JsonSerializable, Ser
     public static function isIntPositive($value)
     {
         return IntPositiveValidator::validate('', $value, [], self::getInstance());
+    }
 
+    /**
+     * 验证是否是域名
+     *
+     * @param $value
+     * @return bool
+     */
+    public function isDomain($value)
+    {
+        return DomainValidator::validate('', $value, [], self::getInstance());
     }
 }
