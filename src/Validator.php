@@ -233,7 +233,7 @@ class Validator implements ArrayAccess, IteratorAggregate, JsonSerializable, Ser
      */
     public static function getRuleClass($rule)
     {
-        $class = __NAMESPACE__ . '\\rules\\' . ucfirst($rule) . 'Validator';
+        $class = __NAMESPACE__ . '\\Rules\\' . ucfirst($rule) . 'Validator';
         if (!class_exists($class)) {
             throw new \Exception("{$class} not exist");
         }
