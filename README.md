@@ -431,6 +431,7 @@ $val = new Validator($data);
 $val->rules([
     ['in', "name", ['jack', 'rose', 'james']],
     ['in', "lang", ['php', 'java', 'go']],
+    ['in', "lang", ['php', 'java', 'go'],true],//第三个参数为true代表类型严格比对
 ]);
 if (!$val->validate()) {
     var_dump($val->errorString());
