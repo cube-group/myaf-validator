@@ -380,7 +380,7 @@ class Validator implements ArrayAccess, IteratorAggregate, JsonSerializable, Ser
                 }
             }
         } else {
-            $msg = str_replace('{field}', Strings::case2camel($field), $msg);
+            $msg = str_replace('{field}', $field, $msg);
         }
         return $msg;
     }
